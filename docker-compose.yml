@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  website:
+    container_name: shoppinglist_website
+    build: website
+    environment:
+      - PORT=3000
+    # volumes:
+      # - ./app:/app
+      # - ./app/node_modules:/app/node_modules
+    ports:
+      - 3000:3000

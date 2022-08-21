@@ -4,8 +4,9 @@ import sqlite from 'sqlite3'
 import {Db, SQLite3Driver} from 'sqlite-ts'
 import {Item} from './model/item'
 import bodyParser from 'body-parser'
+import {env} from 'node:process'
 
-const PORT = 3000
+const PORT = env.PORT
 
 async function main() {
 
@@ -60,7 +61,6 @@ async function main() {
         .where(c => c.equals({ id: req.params.id }))
         res.redirect('/')
     })
-
 
     app.listen(PORT)
     console.log('Express started on port ' + PORT)
