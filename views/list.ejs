@@ -14,14 +14,19 @@
           <tr>
             <td><%= item.content %></td>
             <td>
-              <a href="/items/<%=item.content%>/<%=!item.done%>">
-                <input type="checkbox" <%  if (item.done) {%>checked<%}%>>
-              </a>
+              <form action="/items/<%= item.id %>/update" method="POST">
+                <input type="checkbox" name="done" onChange="this.form.submit()" <%  if (item.done) {%>checked<%}%> >
+                <input class="is-hidden" type="text" name="content" value="<%= item.content%>">
+              </form>
             </td>
           </tr>
         <%}) %>
         <tr>
-          <form action="/items/"></form>
+          <td>
+            <form action="/items/add" method="POST">
+                <input class="input" type="text" name="content" />
+            </form>
+          </td>
         </tr>
       </tbody>
     </table>
